@@ -14,6 +14,7 @@ using namespace std;
 #include <vtkActor.h>
 #include <vtkRenderWindow.h>
 #include <vtkRenderer.h>
+#include <vtkCamera.h>
 #include <vtkRenderWindowInteractor.h>
 #include <vtkPolyData.h>
 #include <vtkSphereSource.h>
@@ -43,7 +44,12 @@ void myShow(vtkPolyData* aGrid)
     ren1->ResetCamera();
     renWin->AddRenderer(ren1);
     renWin->SetSize(512,512);
-
+    int i;
+       for (i = 0; i < 360; ++i)
+       {
+         renWin->Render();
+         ren1->GetActiveCamera()->Azimuth( 1 );
+       }
     vtkSmartPointer<vtkRenderWindowInteractor> iren=vtkSmartPointer<vtkRenderWindowInteractor>::New();
     iren->SetRenderWindow(renWin);
     vtkSmartPointer<vtkInteractorStyleTrackballCamera> style=vtkSmartPointer<vtkInteractorStyleTrackballCamera>::New();
@@ -60,6 +66,7 @@ void myShow(vtkPolyData* aGrid)
     widget->InteractiveOn();
 /***************坐标互动窗件儿***************************************/
     iren->Start();
+
 }
 int main()
 {

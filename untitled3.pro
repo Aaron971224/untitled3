@@ -26,7 +26,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    odbchelper.cpp
+    odbchelper.cpp \
+    test.cpp
 
 HEADERS += \
         mainwindow.h \

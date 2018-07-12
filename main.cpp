@@ -27,6 +27,8 @@ using namespace std;
 
 void myShow(vtkPolyData* aGrid)
 {
+    int i;
+
     vtkSmartPointer<vtkPolyDataMapper> aMapper=vtkSmartPointer<vtkPolyDataMapper>::New();
     aMapper->SetInputData(aGrid);
     aMapper->ScalarVisibilityOn();
